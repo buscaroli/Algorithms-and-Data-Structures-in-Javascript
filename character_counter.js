@@ -3,8 +3,8 @@
 const charCount = (str) => {
     let result = {}     // will store data in the form ' char: qty '
 
-    // REMEMBER: for .. of is for iterable      (eg arrays)
-    //           for .. in is for enumerable    (eg objects)
+    // REMEMBER: for .. of is for iterable      (eg arrays or strings)
+    //           for .. in is for enumerable    (eg object keys)
     for (let char of str) {
         // Validation: only a-z, A-Z and 0-9
         if (validateInput(char)) {
