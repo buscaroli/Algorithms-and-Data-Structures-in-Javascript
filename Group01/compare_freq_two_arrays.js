@@ -67,7 +67,7 @@ const same_01 = (arr1, arr2) => {
     // checked if the one on its left side returns false) it
     // checks that the frequenxy of the key (which is the value
     // inside the object) is the same))
-    for( let key in freq1) {
+    for(let key in freq1) {
         if (!(freq1[key * key] in freq2) &&
             (freq1[key] !== freq2[key * key])){
             return false
