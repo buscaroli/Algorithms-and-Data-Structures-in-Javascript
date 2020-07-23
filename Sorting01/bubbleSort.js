@@ -6,7 +6,7 @@
  *          there array is traversed only once (already sorted or all items
  *          are disposed in a way that make them sorted after the first pass).
  * 
- *      Space Complexity is O(n) as no extra arrays need to be created.
+ *      Space Complexity is O(1) as no extra arrays need to be created.
  *      
  *      Check Out the Optimized version of BubbleSort: bubbleSortOptimized.js.
  */

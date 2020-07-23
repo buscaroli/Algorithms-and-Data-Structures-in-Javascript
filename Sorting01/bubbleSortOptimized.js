@@ -4,7 +4,7 @@
  * This algorithm could be appropriate if we run it after every insertion
  * to the array as it will need to run only once giving a 
  * Time Complexity of O(n).
- * Space Complexity is O(n) as the standars BubbleSort Algo as no extra arrays
+ * Space Complexity is O(1) as the standars BubbleSort Algo as no extra arrays
  * are created.
  */
 
