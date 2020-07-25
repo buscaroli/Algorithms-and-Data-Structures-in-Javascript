@@ -6,6 +6,9 @@
  * This version has a different Space Complexity: O(n) as a new
  * array is created. (To Be Confirmed)
  * 
+ * Note I am using arr[0] as a pivot, bad in case of almost/completely
+ * sorted arrays!
+ * 
  */
 
 const quicksort = (arr) => {

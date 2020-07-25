@@ -3,7 +3,11 @@
  * Time Complexity:
  *  Best Case scenario:  O(n log(n))
  *  Avg Case scenario:   O(n log(n))
- *  Worst Case scenario: O(n^2)
+ *  Worst Case scenario: O(n^2) Happens when the chosen pivot is constantly
+ *          the minimum element as it splits the array into a 1 element
+ *          array and the rest, then the rest is split again into a one elem
+ *          array and so on... That's why selecting the pivot to be the arr[0]
+ *           is really bad in case of already sorted arrays!
  * 
  * It sorts IN PLACE.
  * It works well even in Virtual-Memory environments.
