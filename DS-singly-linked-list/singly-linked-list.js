@@ -1,5 +1,11 @@
 /* DATA STRUCTURES - Singly Linked Lists
  *
+ * TIME COMPLEXITY OF METHODS
+ * - Insertion: O(1)
+ * - Removal:   O(1)
+ * - Searching: O(n)
+ * - Access:    O(n)
+ * 
  */
 
 class Node {
@@ -285,6 +291,17 @@ class SLList {
         return this
     }
 
+    search(nodeVal) {
+        if (this.length === 0) return false
+
+        let current = this.head
+        while (current) {
+            if (current.val === nodeVal) return true
+            current = current.next
+        }
+        return false
+    }
+
 }
 
 /* TESTING TESTING TESTING ***************************** */
@@ -418,3 +435,7 @@ newList3.printList()
 console.log('reverse2:')
 newList3.reverse2()
 newList3.printList()
+console.log('Searching for the node with the value 3:')
+console.log(newList3.search(3))
+console.log('Searching for the node with the value 9:')
+console.log(newList3.search(9))
