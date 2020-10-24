@@ -2,7 +2,12 @@
  *
  * Implemented with a Singly Linked List (SLL)
  * 
- * LIFO: Last In First Out
+ * Implemented using Classes.
+ * 
+ * The Tail is not actually used but could come in handy for implementing
+ * accessory methods.
+ * 
+ * LIFO: tail In head Out
  *       In real life: 
  *          - A pile of Plates, where you always pick the one on top.
  *          - A Browser's history, where every page is pushed to the stack
@@ -24,45 +29,35 @@
  *          The Stack proritises Insertion and Removal.
  */
 
- /* WORK IN PROGRESS: SIZE ISN'R ACCESSED PROPERTLY, TO BE FIXED */
 
 class Node {
     constructor(val) {
-        this.val = val
+        this.value = val
         this.next = null
     }
 }
 
 class Stack {
-    costructor() {
+    constructor() {
         this.head = null
+        this.tail = null
         this.size = 0
-    }
-
-    print() {
-        let currentNode = this.head
-
-        if (!this.head) {
-            console.log( 'Empty Stack')
-        } else {           
-            while (currentNode) {
-                console.log(currentNode.val)
-                currentNode = currentNode.next
-            }
-        }
     }
 
     push(val) {
         const newNode = new Node(val)
 
         if (!this.head) {
-            // empty stack
             this.head = newNode
+            this.tail = newNode
             this.size++
             return this
         } else {
-            newNode.next = this.head
+            let temp = this.head
             this.head = newNode
+            this.head.next = temp
+            // newNode.next = this.head
+            // this.head = newNode
             this.size++
             return this
         }
@@ -73,9 +68,12 @@ class Stack {
             return null
         } else {
             let popped = this.head
+            if (this.head === this.tail) {
+                this.tail = null
+            }
             this.head = this.head.next
             this.size--
-            return popped
+            return popped.value
         }
     }
 
@@ -83,7 +81,20 @@ class Stack {
         return this.size
     }
 
+    print() {
+        let currentNode = this.head
+
+        if (!this.head) {
+            console.log( 'Empty Stack')
+        } else {           
+            while (currentNode) {
+                console.log(currentNode.value)
+                currentNode = currentNode.next
+            }
+        }
+    }
 }
+
 /* TESTING TESTING TESTING */
 
 let myStack = new Stack()
@@ -122,4 +133,11 @@ myStack.pop()
 myStack.print()
 
 myStack.pop()
+myStack.print()
+
+
+myStack.push(1)
+myStack.print()
+
+myStack.push(2)
 myStack.print()

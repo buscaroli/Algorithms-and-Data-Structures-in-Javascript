@@ -29,12 +29,12 @@
 function Node(val) {
     this.val = val
     this.next = null
-  }
+}
   
   function Stack() {
     this.head = null
     this.size = 0
-  }
+}
   
   Stack.prototype.push = function(val) {
     let newNode = new Node(val)
