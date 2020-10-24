@@ -18,11 +18,13 @@
  *          
  *          - Searching:    O(n) //  Not implemented in this file as already.
  *   
- *          - Access:       O(n) //  implemented in the SLL and not typically
+ *          - Access:       O(n) //  Implemented in the SLL as not typically
  *                               //  used with stacks.
  *          
- *          The Stack proritise Insertion and Removal.
+ *          The Stack proritises Insertion and Removal.
  */
+
+ /* WORK IN PROGRESS: SIZE ISN'R ACCESSED PROPERTLY, TO BE FIXED */
 
 class Node {
     constructor(val) {
@@ -34,7 +36,6 @@ class Node {
 class Stack {
     costructor() {
         this.head = null
-        this.tail = null
         this.size = 0
     }
 
@@ -42,7 +43,7 @@ class Stack {
         let currentNode = this.head
 
         if (!this.head) {
-            console.log( 'Empty List')
+            console.log( 'Empty Stack')
         } else {           
             while (currentNode) {
                 console.log(currentNode.val)
@@ -57,13 +58,13 @@ class Stack {
         if (!this.head) {
             // empty stack
             this.head = newNode
-            this.tail = newNode
             this.size++
             return this
         } else {
             newNode.next = this.head
             this.head = newNode
             this.size++
+            return this
         }
     }
 
@@ -74,12 +75,12 @@ class Stack {
             let popped = this.head
             this.head = this.head.next
             this.size--
-            if (this.size === 0) {
-                this.tail = null
-            }
-
             return popped
         }
+    }
+
+    getSize() {
+        return this.size
     }
 
 }
@@ -90,21 +91,22 @@ let myStack = new Stack()
 myStack.print()
 
 myStack.push(1)
-
 myStack.print()
 
 myStack.push(2)
+myStack.print()
 
 myStack.push(3)
+myStack.print()
 
 myStack.push(4)
+myStack.print()
+console.log('size: ', myStack.getSize())
 
 myStack.push(5)
-
 myStack.print()
 
 myStack.pop()
-
 myStack.print()
 
 myStack.pop()
