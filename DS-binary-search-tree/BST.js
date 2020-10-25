@@ -21,9 +21,17 @@
  *      - In Huffman Coding Trees for data compression (jpeg and mp3)
  *      - GGM Trees for cryptography, to generate pseudo-random numbers
  * 
- * Binary Search trees are used when you need fast searching performance, 
- * as it is O(log n).
+ * Binary Search trees are used when you need fast searching performance
+ * and insertion performance.
+ *  Average case: 
+ *      - Insertion:    O( log n )
+ *      - Search:       O( log n )
  *
+ *  Worst case, when the tree is completely unbalanced, it will be the same
+ *  as a Singly Linked List: 
+ *      - Insertion:    O( n )
+ *      - Search:       O( n )
+ * 
  */
 
 class Node {
@@ -79,12 +87,56 @@ class BST {
             }
         }
     }
+
+    find(val) {
+
+        if (!this.root) {
+            // BST is empty
+            return false
+        }
+        if (val === this.root.value) {
+            // The value we are looking for is the root
+            return true
+        }
+        
+        // Reference the node where the search should start
+        if (val < this.root.value){
+            var currentNode = this.root.left
+        } else {
+            var currentNode = this.root.right
+        }
+        
+        while(true) {
+            if (!currentNode) {
+                // End of tree reached
+                return false
+            } 
+            if (val === currentNode.value) {
+                // Node found
+                return true
+            } 
+            if (val < currentNode.value) {
+                // If value < current we move down to the left child
+                currentNode = currentNode.left
+            } else {
+                // If value > current we move down to the right child
+                currentNode = currentNode.right
+            } 
+        }
+    }
 }
 
 const tree = new BST()
+
+console.log(tree.find(2))
 tree.insert(15)
 tree.insert(7)
 tree.insert(5)
 tree.insert(45)
 tree.insert(10)
 tree.insert(25)
+console.log(tree.find(2))
+console.log(tree.find(10))
+console.log(tree.find(45))
+console.log(tree.find(5))
+console.log(tree.find(100))
