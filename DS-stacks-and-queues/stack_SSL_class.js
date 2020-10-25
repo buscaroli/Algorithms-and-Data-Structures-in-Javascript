@@ -7,7 +7,7 @@
  * The Tail is not actually used but could come in handy for implementing
  * accessory methods.
  * 
- * LIFO: tail In head Out
+ * LIFO: Last In First Out
  *       In real life: 
  *          - A pile of Plates, where you always pick the one on top.
  *          - A Browser's history, where every page is pushed to the stack
@@ -21,7 +21,7 @@
  *   
  *          - Removal:      O(1) -> The actual removal of the node takes O(1).
  *          
- *          - Searching:    O(n) //  Not implemented in this file as already.
+ *          - Searching:    O(n) //  Not implemented in this file.
  *   
  *          - Access:       O(n) //  Implemented in the SLL as not typically
  *                               //  used with stacks.
