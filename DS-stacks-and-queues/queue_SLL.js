@@ -9,7 +9,7 @@
  * 
  * 
  * Time Complexity of its methods:
- *          - Insertion:    O(1) ->  As we keep track of the tail and push
+ *          - Insertion:    O(1) ->  As we keep track of the tail and queue
  *                                   at the tail.
  *   
  *          - Removal:      O(1) -> The actual removal of the node takes O(1).
@@ -59,7 +59,7 @@ class Queue {
         }
     }
 
-    push(val) {
+    queue(val) {
         // will add at the tail of the Queue as I just need the reference
         // to the last element.
         const newNode = new Node(val)
@@ -77,17 +77,17 @@ class Queue {
         }
     }
 
-    unshift() {
+    dequeue() {
         // will remove from the head of the queue as I always have a reference
         // for the first node. If removing from the tail I would need to
         // traverse the whole queue.
         if (!this.head) {
             return null
         } else {
-            let unshifted = this.head.value
+            let dequeueed = this.head.value
             this.head = this.head.next
             this.size--
-            return unshifted
+            return dequeueed
         }
     }
 }
@@ -97,41 +97,40 @@ const myQueue = new Queue()
 myQueue.print()
 console.log('size: ', myQueue.getSize())
 
-myQueue.push(1)
+myQueue.queue(1)
 myQueue.print()
 
-myQueue.push(2)
+myQueue.queue(2)
 myQueue.print()
 
-myQueue.push(3)
+myQueue.queue(3)
 myQueue.print()
 
-myQueue.push(4)
-myQueue.print()
-console.log('size: ', myQueue.getSize())
-
-myQueue.unshift()
-myQueue.print()
-
-myQueue.unshift()
-myQueue.print()
-
-myQueue.unshift()
+myQueue.queue(4)
 myQueue.print()
 console.log('size: ', myQueue.getSize())
 
-myQueue.unshift()
+myQueue.dequeue()
 myQueue.print()
 
-myQueue.unshift()
+myQueue.dequeue()
 myQueue.print()
 
-myQueue.unshift()
+myQueue.dequeue()
+myQueue.print()
+console.log('size: ', myQueue.getSize())
+
+
+myQueue.dequeue()
 myQueue.print()
 
-myQueue.unshift()
+
+myQueue.queue(5)
 myQueue.print()
 
-myQueue.unshift()
+myQueue.queue(6)
 myQueue.print()
+console.log('size: ', myQueue.getSize())
 
+myQueue.queue(7)
+myQueue.print()
