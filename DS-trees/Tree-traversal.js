@@ -18,6 +18,14 @@
  *  In which field are they used?
  *  Check the following link:
  *  https://levelup.gitconnected.com/how-to-traverse-a-tree-using-javascript-c9a79826e819
+ * 
+ * Something worth considering:
+ *  - DFS:
+ *      - there are fewer nodes to keep track of so we take up less space in
+ *          memory.
+ *      - if the BST only has one branch per node (which is something you
+ *          DON'T WANT, it is comparable to a linked list) we only keep a 
+ *          single node in memory.
  *  
  */
 
